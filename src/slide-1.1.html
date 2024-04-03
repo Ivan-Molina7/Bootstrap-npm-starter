@@ -1,6 +1,6 @@
 <header class="bg-005">
     <div class="container">
-    <h1><small>Introducción a</small>Diseño Web 3</h1>
+        <h1><small>Introducción a</small>Diseño Web 3</h1>
     </div>
 </header>
 <main>
@@ -10,12 +10,26 @@
                 empezar a meternos con herramientas y marcos que nos permitan optimizar nuestro flujo de trabajo de cara
                 al profesionalismo. </p>
             <div class="logos-list">
-                <img src="/dist/assets/logo-npm.svg" alt="NPM">
-                <img src="/dist/assets/logo-bootstrap.svg" alt="Bootstrap">
-                <img src="/dist/assets/logo-wp.svg" alt="WordPress">
-                <img src="/dist/assets/logo-sass.svg" alt="Sass">
-                <img src="/dist/assets/logo-vsc.svg" alt="VSC" data-go-slide="1,0">
-                <img src="/dist/assets/logo-git.svg" alt="Git">
+                <form name="contact" method="POST" data-netlify="true">
+                    <p>
+                        <label>Your Name: <input type="text" name="name" /></label>
+                    </p>
+                    <p>
+                        <label>Your Email: <input type="email" name="email" /></label>
+                    </p>
+                    <p>
+                        <label>Your Role: <select name="role[]" multiple>
+                                <option value="leader">Leader</option>
+                                <option value="follower">Follower</option>
+                            </select></label>
+                    </p>
+                    <p>
+                        <label>Message: <textarea name="message"></textarea></label>
+                    </p>
+                    <p>
+                        <button type="submit">Send</button>
+                    </p>
+                </form>
             </div>
             <p>La materia pretende dar al estudiante la base tecnológica que le permita explorar el mundo del desarrollo
                 web profesional. </p>
