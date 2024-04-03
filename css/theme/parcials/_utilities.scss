@@ -1,0 +1,198 @@
+// utilities
+.multiply {
+    mix-blend-mode: multiply;
+    background-blend-mode: multiply;
+}
+
+.align-center {
+    align-items: center !important;
+}
+
+.zoom-05 {
+    zoom: 0.5
+}
+
+.bg-005 {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.op-05 {
+    opacity: 0.5
+}
+
+.op-01 {
+    opacity: 0.1
+}
+
+.op-00 {
+    opacity: 0;
+}
+
+.h-100 {
+    height: 100vh;
+}
+
+.w-100 {
+    width: 100vw;
+}
+
+.w-unset {
+    width: unset !important;
+}
+
+.pos-fixed {
+    position: fixed !important;
+    ;
+}
+
+.pos-relative {
+    position: relative !important;
+    ;
+}
+
+.full-fixed {
+    position: fixed;
+    z-index: -1;
+    width: 100%;
+    object-fit: cover !important;
+    max-width: unset !important;
+    height: 90vh;
+    max-height: unset !important;
+}
+.full-screen-content{
+   margin: 0;width: 100%; max-width: unset!important;
+}
+
+.flex-unset {
+    flex: unset !important;
+    ;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.shadow-light{
+    box-shadow: 0 0 10px 2px #f2f2f2;
+}
+.shadow-dark{
+    box-shadow: 0 0 10px 2px #333;
+}
+
+
+// Margins
+.m-auto {
+    margin: auto !important;
+    justify-content: center;
+}
+
+@mixin generate-helpers($prop, $direction, $number) {
+    $d: str-slice($direction, 1, 1);
+    $p: str-slice($prop, 1, 1);
+
+    @if($d !="" or $p !="") {
+
+        $class: ".#{$p}#{$d}-#{$number}";
+
+        @if($d =="") {
+            #{$class} {
+                #{$prop}: #{$number}rem !important;
+            }
+        }
+
+        @else if($p =="") {
+            #{$class} {
+                #{$direction}: #{$number}rem;
+
+                @if($d !="g") {
+                    position: relative;
+                }
+            }
+        }
+
+        @else {
+            #{$class} {
+                #{$prop}-#{$direction}: #{$number}rem !important;
+            }
+        }
+    }
+}
+
+$props: "margin", "gap", "padding";
+$directions: "", "top", "bottom", "left", "right";
+
+@for $i from -5 through 5 {
+    @include generate-helpers('', 'gap', $i); // g-3
+
+    @each $directions in $directions {
+        @include generate-helpers('', $directions, $i); // t-3
+
+        @each $props in $props {
+            @include generate-helpers($props, $directions, $i); // mt-3
+        }
+    }
+}
+
+// Text
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.column-2 {
+    display: grid !important;
+    grid-template-columns: 200px 1fr;
+}
+
+.nowrap {
+    white-space: nowrap;
+    flex-wrap: nowrap;
+}
+
+
+// Estructurales
+.divt {
+    border-top: 1px solid #333;
+    padding-top: 1rem;
+    margin-top: 1rem;
+}
+
+
+// z-index
+@mixin z-i($indice) {
+    @for $i from 1 through $indice {
+        .z-#{$i} {
+            z-index: #{$i};
+        }
+
+        .z-#{$i}0 {
+            z-index: #{$i * 10};
+        }
+
+        .z-#{$i}00 {
+            z-index: #{$i * 100};
+        }
+    }
+}
+
+// Use the mixin to generate classes for numbers 1 to 12
+@include z-i(5);

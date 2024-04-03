@@ -1,0 +1,59 @@
+.reveal section {
+
+    [class*="cols"] {
+        display: flex;
+        flex: 1;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-items: start;
+        gap: 1rem;
+    }
+
+    // Define the mixin
+    @mixin generate-cols($total-cols) {
+        @for $i from 1 through $total-cols {
+            .cols-#{$i} [class*="col-"] {
+                width: calc(-4rem + 100% / #{$i});
+                overflow: hidden;
+            }
+            .col-#{$i}0 {
+                flex-shrink: 0;
+                width: calc( percentage(calc($i / 10)) - 1rem);
+            }
+        }
+    }
+    
+    // Use the mixin to generate classes for numbers 1 to 12
+    @include generate-cols(12);
+    
+    [class*="col-free"]{
+        width: unset;
+    }
+    
+    
+    [class*="col-"] {
+        padding: 2rem;
+        background-color: $backgroundColor;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    [class*="col-"][class*="-top"] {
+        justify-content: start;
+        display: flex;
+    }
+
+    @media screen and (max-width: 600px) {
+
+        .d-flex,
+        .cols {
+            flex-direction: column !important;
+        }
+
+        [class*="col-"] {
+            width: 100% !important;
+        }
+    }
+
+}

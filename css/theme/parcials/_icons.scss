@@ -1,0 +1,55 @@
+
+.reveal section {
+
+    // icons
+    [class*="icon-"] {
+        font-size: 1.0rem;
+        position: relative;
+        margin-left: 2rem;
+        white-space: nowrap;
+
+        &::before {
+            content: '';
+            background-repeat: no-repeat;
+            background-size: 1.8rem 1.2rem;
+            height: 100%;
+            width: 1.8rem;
+            background-position-y: center;
+            position: absolute;
+            left: -2rem;
+            top: 0.15rem;
+        }
+    }
+
+
+    .icon-youtube::before {
+        background-image: url("../assets/icons/youtube.svg");
+    }
+
+    .icon-curso::before {
+        background-image: url("../assets/icons/uni.svg");
+    }
+
+    .icon-documentacion::before {
+        background-image: url("../assets/icons/uni.svg");
+    }
+
+    .icon-lectura::before {
+        background-image: url("../assets/icons/uni.svg");
+    }
+
+    .icon-app::before {
+        background-image: url("../assets/icons/sololearn.svg");
+    }
+
+    .icon-link::before {
+        background-image: url("../assets/icons/link.svg");
+    }
+
+    .icon-uy::before {
+        background-image: url("../assets/icons/uy.svg");
+        background-size: 1.35rem 0.9rem;
+    }
+
+
+}

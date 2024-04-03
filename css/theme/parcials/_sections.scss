@@ -1,0 +1,44 @@
+.reveal section {
+    justify-content: center;
+    display: flex;
+    text-align: left;
+
+    // Big sections
+    header {
+        width: 100%;
+        padding: 2rem;
+        z-index: 100;
+        text-align: left;
+        .container{
+            gap: 2rem;
+            display: flex;
+            align-items: center;
+            max-width: calc(1440px - 4rem);
+            margin: auto;
+        }
+
+        h1,h2{
+            margin-bottom: 0;
+        }
+
+        .separator{
+            height: 50px;
+            width: 1px;
+            background-color: #333;
+        }
+    }
+
+    main:not(.w-width) {
+        margin: auto;
+        width:100vw;
+        min-height: calc(100vh - 100px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 1440px;
+    }
+
+    main .cols {
+        /* align-self: baseline;*/
+    }
+}
